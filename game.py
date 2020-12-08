@@ -6,9 +6,11 @@ class Game():
         # Create 10 row board
         i = 0
         while i < 10:
-            widthOfBoard = 0
-            while widthOfBoard < 10:
-                self.board.append()
+            l = [None] * 10
+            self.board.append(l)
+            i += 1
+
     def render(self):
-        print(self.height, self.width)
+        for i in self.board:
+            print(i)
 
