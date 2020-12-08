@@ -23,6 +23,7 @@ class Game():
             else:
                 snakeOnThisLine = False
 
+            #Inner list
             for subList in self.board[i]:
                 subCounter = 0
                 if snakeOnThisLine:

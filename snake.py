@@ -7,7 +7,7 @@ class Snake:
         return self.symbol
 
     def snake_position_height(self):
-        print(self.position[0])
+        return(self.position[0])
 
     def snake_position_width(self):
-        print(self.position[1])
+        return(self.position[1])
