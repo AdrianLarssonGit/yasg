@@ -1,7 +1,7 @@
 class Snake:
     def __init__(self, symbol):
         self.symbol = symbol
-        self.position = [0, 0]
+        self.position = [5, 5]
 
     def print(self):
         print(self.symbol, end='')

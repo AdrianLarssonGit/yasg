@@ -35,7 +35,7 @@ class Game():
                             continue
                     print(char, end='')
 
-            subCounter += 1
+                subCounter += 1
 
             print(" |")
             i += 1
