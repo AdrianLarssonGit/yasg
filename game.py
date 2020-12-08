@@ -23,22 +23,23 @@ class Game():
             else:
                 snakeOnThisLine = False
 
+
             #Inner list
+            subCounter = 0
             for subList in self.board[i]:
-                subCounter = 0
-                if snakeOnThisLine:
-                    if self.snake.snake_position_width() == subCounter:
-                        print(self.snake.print, end='')
-                        snakeOnThisLine = False
-                    else:
-                        print(sublist[subCounter], end='')
-                    subCounter += 1
+                for char in subList:
+                    if snakeOnThisLine:
+                        if self.snake.snake_position_width() == subCounter:
+                            self.snake.print()
+                            snakeOnThisLine = False
+                            continue
+                    print(char, end='')
+
+            subCounter += 1
 
             print(" |")
             i += 1
         print(" -"*(len(self.board)-3))
-
-        print(self.snake.print())
 
 
 

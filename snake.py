@@ -4,7 +4,7 @@ class Snake:
         self.position = [0, 0]
 
     def print(self):
-        return self.symbol
+        print(self.symbol, end='')
 
     def snake_position_height(self):
         return(self.position[0])
