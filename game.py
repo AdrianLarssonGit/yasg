@@ -1,6 +1,6 @@
 from snake import Snake
 from apple import Apple
-
+import subprocess
 
 class Game:
     def __init__(self, height, width, board_symbol, snake_symbol):
@@ -9,6 +9,7 @@ class Game:
         self.board = []
         self.snake = Snake(snake_symbol)
         self.apple = Apple(width, height)
+        self.score = 0
 
         # Generate board
         i = 0
@@ -18,6 +19,7 @@ class Game:
             i += 1
 
     def render(self):
+        subprocess.call("clear")
         i = 0
         print(" -" * (len(self.board) - 3))
         while i < len(self.board):
@@ -57,7 +59,8 @@ class Game:
 
         if self.apple.position[0] == self.snake.position[0] and self.apple.position[1] == self.snake.position[1]:
             self.apple.update_apple_position()
-            print("SCORE!!!")
+            self.score += 1
+            print("SCORE: " + str(self.score))
 
 
     def update_snake_position(self, move):
