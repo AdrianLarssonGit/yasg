@@ -1,4 +1,5 @@
 from snake import Snake
+from apple import Apple
 
 
 class Game:
@@ -7,6 +8,7 @@ class Game:
         self.width = width
         self.board = []
         self.snake = Snake(snake_symbol)
+        self.apple = Apple(width, height)
 
         # Generate board
         i = 0
@@ -20,10 +22,16 @@ class Game:
         print(" -" * (len(self.board) - 3))
         while i < len(self.board):
             print("| ", end='')
+
             if self.snake.snake_position_height() == i:
                 snakeOnThisLine = True
             else:
                 snakeOnThisLine = False
+
+            if self.apple.apple_position_height() == i:
+                appleOnThisLine = True
+            else:
+                appleOnThisLine = False
 
             # Inner list
             subCounter = 0
@@ -32,6 +40,11 @@ class Game:
                     if snakeOnThisLine:
                         if self.snake.snake_position_width() == subCounter:
                             self.snake.print()
+                            snakeOnThisLine = False
+                            continue
+                    if appleOnThisLine:
+                        if self.apple.apple_position_width() == subCounter:
+                            self.apple.print()
                             snakeOnThisLine = False
                             continue
                     print(char, end='')

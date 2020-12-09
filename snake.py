@@ -18,4 +18,14 @@ class Snake:
             self.position[1] = self.position[1]+1
         if move == "s":
             self.position[0] = self.position[0]+1
+        if move == "a":
+            self.position[1] = self.position[1]-1
+        if move == "w":
+            self.position[0] = self.position[0]-1
+
+    def size(self):
+        return self.size()
+
+    def update_size(self):
+        self.size += 1
 
