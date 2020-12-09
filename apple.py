@@ -3,7 +3,7 @@ from random import randrange
 class Apple:
     def __init__(self, boardWidth, boardHeight):
         self.symbol = "A"
-        self.position = [5, 5]
+        self.position = [1, 0]
         self.baordWidth = boardWidth
         self.boardHeight = boardHeight
 

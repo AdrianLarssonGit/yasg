@@ -55,6 +55,11 @@ class Game:
             i += 1
         print(" -" * (len(self.board) - 3))
 
+        if self.apple.position[0] == self.snake.position[0] and self.apple.position[1] == self.snake.position[1]:
+            self.apple.update_apple_position()
+            print("SCORE!!!")
+
+
     def update_snake_position(self, move):
         self.snake.update_position(move)
 
