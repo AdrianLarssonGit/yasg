@@ -7,19 +7,25 @@ class Game:
         self.height = height
         self.width = width
         self.board = []
-        self.snake = Snake(snake_symbol)
         self.apple = Apple(width, height)
         self.score = 0
+        self.boarddimesionarray = []
+        self.boarddimesionarray.append(self.width)
+        self.boarddimesionarray.append(self.height)
 
         # Generate board
         i = 0
-        while i < 10:
-            l = [board_symbol] * 10
+        while i < self.width:
+            l = [board_symbol] * self.height
             self.board.append(l)
             i += 1
 
+        self.snake = Snake(snake_symbol, self.boarddimesionarray)
+
     def render(self):
         subprocess.call("clear")
+        print(len(self.board))
+        print(len(self.board[1]))
         i = 0
         print(" -" * (len(self.board) - 3))
         while i < len(self.board):

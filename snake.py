@@ -1,8 +1,9 @@
 class Snake:
-    def __init__(self, symbol):
+    def __init__(self, symbol, boarddimesionarray):
         self.symbol = symbol
         self.position = [0, 0]
         self.size = 1
+        self.boarddimesionarray = boarddimesionarray
 
     def print(self):
         print(self.symbol, end='')
@@ -14,13 +15,13 @@ class Snake:
         return(self.position[1])
 
     def update_position(self, move):
-        if move == "d":
+        if move == "d" and self.position[1]+2 <= self.boarddimesionarray[1]:
             self.position[1] = self.position[1]+1
-        if move == "s":
+        if move == "s" and self.position[0]+2 <= self.boarddimesionarray[0]:
             self.position[0] = self.position[0]+1
-        if move == "a":
+        if move == "a" and self.position[1] > 0:
             self.position[1] = self.position[1]-1
-        if move == "w":
+        if move == "w" and self.position[0] > 0:
             self.position[0] = self.position[0]-1
 
     def size(self):
