@@ -14,6 +14,8 @@ class Snake:
         return(self.position[1])
 
     def update_position(self, move):
-        self.position[0] = self.position[0]+1
-        print(self.position[0])
-        print(self.position[1])
+        if move == "d":
+            self.position[1] = self.position[1]+1
+        if move == "s":
+            self.position[0] = self.position[0]+1
+
