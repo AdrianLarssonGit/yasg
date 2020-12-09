@@ -29,3 +29,5 @@ class Snake:
     def update_size(self):
         self.size += 1
 
+    def get_position(self):
+        return self.position

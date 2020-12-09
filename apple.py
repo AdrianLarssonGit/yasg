@@ -3,7 +3,7 @@ from random import randrange
 class Apple:
     def __init__(self, boardWidth, boardHeight):
         self.symbol = "A"
-        self.applePosition = [5,5]
+        self.position = [5, 5]
         self.baordWidth = boardWidth
         self.boardHeight = boardHeight
 
@@ -12,13 +12,16 @@ class Apple:
         randomNewHeight = randrange(0,self.boardHeight)
         randomNewWidth = randrange(0,self.baordWidth)
 
-        self.applePosition = [randomNewHeight, randomNewWidth]
+        self.position = [randomNewHeight, randomNewWidth]
 
     def apple_position_height(self):
-        return self.applePosition[0]
+        return self.position[0]
 
     def apple_position_width(self):
-        return self.applePosition[1]
+        return self.position[1]
 
     def print(self):
         print(self.symbol, end='')
+
+    def get_position(self):
+        return self.position
