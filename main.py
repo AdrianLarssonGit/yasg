@@ -18,10 +18,11 @@ while True:
     game.render()
 
     move = ""
+
     def input_thread(a_list):
-
+        global move
+        move = input()
         a_list.append(True)
-
 
     def game_session():
         global move
@@ -33,7 +34,6 @@ while True:
             game.render()
 
         if a_list:
-            move = readchar.readchar()
             game_session()
             input_thread().join()
 
