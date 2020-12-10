@@ -24,10 +24,9 @@ class Game:
         self.snake = Snake(snake_symbol, self.boarddimesionarray)
 
     def render(self):
-        #subprocess.call("clear")
-        os.system("cls")
-        print(len(self.board))
-        print(len(self.board[1]))
+        subprocess.call("clear")
+        #os.system("cls")
+        print("Current score: " + str(self.score))
         i = 0
         print(" -" * (len(self.board) - 3))
         while i < len(self.board):
@@ -68,7 +67,8 @@ class Game:
         if self.apple.position[0] == self.snake.position[0] and self.apple.position[1] == self.snake.position[1]:
             self.apple.update_apple_position()
             self.score += 1
-            print("SCORE: " + str(self.score))
+            print("SCORE!")
+
 
 
     def update_snake_position(self, move):
