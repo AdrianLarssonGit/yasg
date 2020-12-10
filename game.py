@@ -1,6 +1,7 @@
 from snake import Snake
 from apple import Apple
 import subprocess
+import os
 
 class Game:
     def __init__(self, height, width, board_symbol, snake_symbol):
@@ -23,7 +24,8 @@ class Game:
         self.snake = Snake(snake_symbol, self.boarddimesionarray)
 
     def render(self):
-        subprocess.call("clear")
+        #subprocess.call("clear")
+        os.system("cls")
         print(len(self.board))
         print(len(self.board[1]))
         i = 0

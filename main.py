@@ -1,5 +1,7 @@
 from game import Game
 import time
+import _thread
+
 while True:
     print("Welcome to Yet Another Snake Game!")
     print("I assume you know the rules for this classic game?")
@@ -13,17 +15,17 @@ while True:
 
     game.render()
 
+    def input_thread(a_list):
+        input()
+        a_list.append(True)
 
     def game_session(move):
-        game.update_snake_position(move)
-        while True:
+        a_list = []
+        _thread.start_new_thread(input_thread, (a_list,))
+        while not a_list:
             time.sleep(1)
             game.update_snake_position(move)
             game.render()
-            if input():
-                move = input()
-                game_session(move)
-                break
 
 
     move = input()
