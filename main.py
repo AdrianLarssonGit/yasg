@@ -16,23 +16,30 @@ while True:
     input()
     game.render()
 
-    def input_thread(a_list):
-        #a_list.append(True)
-        #move = input()
-        game_session(move)
+    move = ""
 
-    def game_session(move):
-        a_list = []
+    def input_thread(a_list):
+        global move
         move = input()
+        print("MOVE FROM THIS THREAD: " + move)
+        game.update_snake_position(move)
+        a_list.append(True)
+
+    def game_session():
+        global move
+        a_list = []
         _thread.start_new_thread(input_thread, (a_list,))
         while not a_list:
-            print(a_list)
             time.sleep(1)
             game.update_snake_position(move)
             game.render()
+        if a_list:
+            game_session()
+
+
 
 
     move = input()
-    game_session(move)
+    game_session()
 
     break
