@@ -12,17 +12,21 @@ while True:
     game = Game(10, 10, " ", ">")
     print("The snake start at 0,0 (Upper left corner)")
     print("Good luck!")
-
+    print("Press any key to start...")
+    input()
     game.render()
 
     def input_thread(a_list):
-        input()
-        a_list.append(True)
+        #a_list.append(True)
+        #move = input()
+        game_session(move)
 
     def game_session(move):
         a_list = []
+        move = input()
         _thread.start_new_thread(input_thread, (a_list,))
         while not a_list:
+            print(a_list)
             time.sleep(1)
             game.update_snake_position(move)
             game.render()
