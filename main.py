@@ -1,6 +1,7 @@
 from game import Game
 import time
 import _thread
+import readchar
 
 while True:
     game = Game(10, 10, " ", ">")
@@ -17,10 +18,8 @@ while True:
     game.render()
 
     move = ""
-
     def input_thread(a_list):
-        global move
-        move = input()
+
         a_list.append(True)
 
 
@@ -29,11 +28,12 @@ while True:
         a_list = []
         _thread.start_new_thread(input_thread, (a_list,))
         while not a_list:
-            time.sleep(3)
+            time.sleep(0.5)
             game.update_snake_position(move)
             game.render()
 
         if a_list:
+            move = readchar.readchar()
             game_session()
             input_thread().join()
 
