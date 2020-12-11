@@ -3,6 +3,7 @@ import time
 import _thread
 import keyboardInput
 import globals
+
 while True:
     game = Game(10, 10, " ", ">")
     print("Welcome to Yet Another Snake Game!")
@@ -17,12 +18,14 @@ while True:
     input()
     game.render()
 
-    #globals.move = ""
+
+    # globals.move = ""
 
     def input_thread(a_list):
         keyboardInput.listener
         globals.move
         a_list.append(True)
+
 
     def game_session():
         a_list = []
@@ -37,8 +40,7 @@ while True:
             input_thread().join()
 
 
-
-    globals.move = input()
+    globals.move = "s"
     game_session()
 
     break
