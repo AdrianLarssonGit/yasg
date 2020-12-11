@@ -24,8 +24,8 @@ class Game:
         self.snake = Snake(snake_symbol, self.boarddimesionarray)
 
     def render(self):
-        subprocess.call("clear")
-        #os.system("cls")
+        #subprocess.call("clear")
+        os.system("cls")
         print("Current score: " + str(self.score))
         i = 0
         print(" -" * (len(self.board) - 3))

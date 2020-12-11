@@ -1,7 +1,7 @@
 from game import Game
 import time
 import _thread
-import readchar
+
 
 while True:
     game = Game(10, 10, " ", ">")
