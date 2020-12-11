@@ -24,8 +24,11 @@ class Game:
         self.snake = Snake(snake_symbol, self.boarddimesionarray)
 
     def render(self):
+        # Snake growth
+
         #subprocess.call("clear")
-        os.system("cls")
+        #os.system("cls")
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("Current score: " + str(self.score))
         i = 0
         print(" -" * (len(self.board) - 3))
@@ -47,6 +50,13 @@ class Game:
             for subList in self.board[i]:
                 for char in subList:
                     if snakeOnThisLine:
+                        #for snakepositions in self.snake.positionUpdated:
+                        # if self.snake.positionUpdated[0][1] == subCounter:
+                        #     print(subCounter)
+                        #     self.snake.print()
+                        #     snakeOnThisLine = False
+                        #     continue
+
                         if self.snake.snake_position_width() == subCounter:
                             self.snake.print()
                             snakeOnThisLine = False

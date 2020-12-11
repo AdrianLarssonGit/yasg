@@ -3,6 +3,7 @@ class Snake:
     def __init__(self, symbol, boarddimesionarray):
         self.symbol = symbol
         self.position = [0, 0]
+        self.positionUpdated = [[0,0]]
         self.size = 1
         self.boarddimesionarray = boarddimesionarray
 
@@ -24,6 +25,7 @@ class Snake:
             time.sleep(3)
         elif move == "s" and self.position[0]+2 <= self.boarddimesionarray[0]:
             self.position[0] = self.position[0] + 1
+            self.positionUpdated[0][0] = self.positionUpdated[0][0] + 1
             self.symbol = "v"
         elif move == "s" and self.position[0]+2 >= self.boarddimesionarray[0]:
             print("Game over! S")

@@ -31,7 +31,7 @@ while True:
         a_list = []
         _thread.start_new_thread(input_thread, (a_list,))
         while not a_list:
-            time.sleep(0.5)
+            time.sleep(0.3)
             game.update_snake_position(globals.move)
             game.render()
 
