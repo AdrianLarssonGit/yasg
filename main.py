@@ -1,8 +1,8 @@
 from game import Game
 import time
 import _thread
-
-
+from pynput.keyboard import Controller, Key
+import globals
 while True:
     game = Game(10, 10, " ", ">")
     print("Welcome to Yet Another Snake Game!")
@@ -17,27 +17,26 @@ while True:
     input()
     game.render()
 
-    move = ""
+    globals.move = ""
 
     def input_thread(a_list):
-        global move
-        move = input()
+        globals.move
+        globals.move = input()
         a_list.append(True)
 
     def game_session():
-        global move
         a_list = []
         _thread.start_new_thread(input_thread, (a_list,))
         while not a_list:
             time.sleep(0.5)
-            game.update_snake_position(move)
+            game.update_snake_position(globals.move)
             game.render()
 
         if a_list:
             game_session()
             input_thread().join()
 
-    move = input()
+    globals.move = input()
     game_session()
 
     break
