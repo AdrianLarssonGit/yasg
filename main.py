@@ -1,7 +1,7 @@
 from game import Game
 import time
 import _thread
-from pynput.keyboard import Controller, Key
+import keyboardInput
 import globals
 while True:
     game = Game(10, 10, " ", ">")
@@ -17,11 +17,11 @@ while True:
     input()
     game.render()
 
-    globals.move = ""
+    #globals.move = ""
 
     def input_thread(a_list):
+        keyboardInput.listener
         globals.move
-        globals.move = input()
         a_list.append(True)
 
     def game_session():
@@ -35,6 +35,8 @@ while True:
         if a_list:
             game_session()
             input_thread().join()
+
+
 
     globals.move = input()
     game_session()

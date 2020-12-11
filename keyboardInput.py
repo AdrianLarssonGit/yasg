@@ -1,12 +1,10 @@
 from pynput import keyboard
-
+import globals
 def on_press(key):
     try:
-        saved_move = key.char
-        print("SAVED KEY IS: " + saved_move)
+        globals.move = key.char
     except AttributeError:
-        print('special key {0} pressed'.format(
-            key))
+        pass
 
 
 def on_release(key):
@@ -17,10 +15,10 @@ def on_release(key):
         return False
 
 # Collect events until released
-with keyboard.Listener(
-        on_press=on_press,
-        on_release=on_release) as listener:
-    listener.join()
+# with keyboard.Listener(
+#         on_press=on_press,
+#         on_release=on_release) as listener:
+#     listener.join()
 
 # ...or, in a non-blocking fashion:
 listener = keyboard.Listener(
